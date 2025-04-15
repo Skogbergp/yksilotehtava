@@ -1,0 +1,47 @@
+.nav {
+    background-color: rgb(153, 145, 145);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav a:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+.nav select {
+    font-size: 16px;
+    padding: 5px;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.menu{
+    padding: 20%;
+    
+}
+
+.menu-table{width: 100%;
+border-collapse: collapse;
+border: 1px solid #ddd;
+padding: 20%;
+
+}
+.menu-table th, .menu-table td{
+    border: 1px solid #da0404;
+}
+#map { height: 180px; }

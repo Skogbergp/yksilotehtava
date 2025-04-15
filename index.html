@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Ravintola</h1>
+        </div>
+        <div class="nav">
+            <a href="">Etusivu</a>
+            <a href="">Suosikit</a>
+            <a href="">luo käyttäjä</a>
+            <a href="">Kirjaudu</a>
+            <select name="ravintolat" id="ravintolat">
+                <option value="ravintola1">Ravintola 1</option>
+                <option value="ravintola2">Ravintola 2</option>
+                <option value="ravintola3">Ravintola 3</option>
+                <option value="ravintola4">Ravintola 4</option>
+                <option value="ravintola5">Ravintola 5</option>
+            </select>
+            <select name="menu" id="menu">
+                <option value="daily">päivän menu</option>
+                <option value="weekly">Viikon menu</option>
+            </select>
+        </div>
+        <div class="content">
+            <table id="menu-table" class="menu-table">
+                <thead>
+                    <tr>
+                        <th>Ruoka</th>
+                        <th>Hinta</th>
+                    </tr>
+                </thead>
+                <tbody id="menu-items">
+                    <tr>
+                        <td>Ruoka 1</td>
+                        <td>10€</td>
+                    </tr>
+                    <tr>
+                        <td>Ruoka 2</td>
+                        <td>15€</td>
+                   </tr>
+                </tbody>
+
+            </table>
+            <div id="map"></div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
