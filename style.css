@@ -1,47 +1,70 @@
 .nav {
-    background-color: rgb(153, 145, 145);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
-    padding: 10px;
-    color: white;
-    text-align: center;
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
+  background-color: #6c757d; /* Neutral gray */
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  padding: 10px;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
 }
 
 .nav a:hover {
-    background-color: rgb(0, 0, 0);
+  background-color: #495057; /* Darker gray for hover */
 }
 
 .nav select {
-    font-size: 16px;
-    padding: 5px;
-    margin-left: 10px;
-    background-color: white;
-    color: black;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  font-size: 16px;
+  padding: 5px;
+  margin-left: 10px;
+  background-color: #f8f9fa; /* Light gray */
+  color: #212529; /* Dark text */
+  border: 1px solid #ced4da; /* Neutral border */
+  border-radius: 4px;
 }
 
-.menu{
-    padding: 20%;
-    
+.menu {
+  padding: 20%;
 }
 
-.menu-table{width: 100%;
-border-collapse: collapse;
-border: 1px solid #ddd;
-padding: 20%;
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  background-color: #f8f9fa; /* Light gray */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+.menu-table th,
+.menu-table td {
+  border: 1px solid #dee2e6; /* Neutral border */
+  padding: 12px 15px;
 }
-.menu-table th, .menu-table td{
-    border: 1px solid #da0404;
+
+.menu-table th {
+  background-color: #adb5bd; /* Medium gray */
+  color: white;
+  font-weight: bold;
 }
-#map { height: 180px; }
+
+.menu-table tr:nth-child(even) {
+  background-color: #e9ecef; /* Very light gray */
+}
+
+.menu-table tr:hover {
+  background-color: #ced4da; /* Slightly darker gray for hover */
+  cursor: pointer;
+}
+
+#map {
+  height: 180px;
+}
