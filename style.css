@@ -1,6 +1,6 @@
 .nav {
   background-color: #6c757d; /* Neutral gray */
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
   padding: 10px;
   color: white;
@@ -66,5 +66,5 @@
 }
 
 #map {
-  height: 180px;
+  height: 360px;
 }

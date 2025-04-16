@@ -1,12 +1,11 @@
 import * as restaurant from './restaurants.js';
+import * as map from './map.js';
 const restaurantSelect = document.querySelector('#ravintolat');
 
 const restaurants = await restaurant.getRestaurants();
-console.log('restaurants', restaurants);
 
 for (const restaurant of restaurants) {
   const option = document.createElement('option');
-  console.log('restaurant', restaurant);
   option.value = restaurant._id;
   option.textContent = restaurant.name;
   restaurantSelect.appendChild(option);
@@ -14,6 +13,7 @@ for (const restaurant of restaurants) {
 
 restaurantSelect.addEventListener('change', () => {
   createMenuTable();
+  map.addMarker(restaurantSelect.value);
 });
 
 createMenuTable();
