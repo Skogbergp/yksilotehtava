@@ -5,17 +5,21 @@ import * as menus from './menuConstruction.js';
 const restaurantSelect = document.querySelector('#ravintolat');
 const toggleButton = document.querySelector('#menu-toggle');
 
-let menuToggle = true;
+let menuToggle = true; // true for daily menu, false for weekly menu
+
+// Set initial button text
+toggleButton.textContent = menuToggle
+  ? 'päivän ruokalista'
+  : 'viikon ruokalista';
 
 toggleButton.addEventListener('click', () => {
   menuToggle = !menuToggle; // Toggle the state
   menus.createMenuTable(menuToggle); // Update the menu table based on the toggle state
 
-  if (menuToggle) {
-    toggleButton.textContent = 'päivän ruokalista';
-  } else {
-    toggleButton.textContent = 'viikon ruokalista';
-  }
+  // Update button text based on the toggle state
+  toggleButton.textContent = menuToggle
+    ? 'päivän ruokalista'
+    : 'viikon ruokalista';
 });
 
 const restaurants = await restaurant.getRestaurants();
