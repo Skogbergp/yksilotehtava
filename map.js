@@ -1,6 +1,12 @@
 import * as restaurantModule from './restaurants.js';
-navigator.geolocation.getCurrentPosition(success, error);
 
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0,
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
 var map = L.map('map');
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -16,7 +22,6 @@ async function addMarker(id) {
   const name = restaurantData.name;
   const marker = L.marker([lat, lon]).addTo(map);
   marker.bindPopup(name);
-  marker.openPopup();
 }
 function moveToLocation(lat, lon) {
   map.setView([lat, lon], 13);
@@ -29,6 +34,18 @@ function success(position) {
   const coords = position.coords;
   const lat = coords.latitude;
   const lon = coords.longitude;
+
+  // Move the map to the user's location
   moveToLocation(lat, lon);
+
+  // Add a red dot for "You are here"
+  const redDot = L.circleMarker([lat, lon], {
+    radius: 8, // Size of the dot
+    color: 'red', // Border color
+    fillColor: 'red', // Fill color
+    fillOpacity: 0.8, // Opacity of the fill
+  }).addTo(map);
+
+  redDot.bindPopup('You are here').openPopup(); // Add a popup to the red dot
 }
 export {addMarker, moveToLocation};
