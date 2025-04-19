@@ -48,4 +48,24 @@ function success(position) {
 
   redDot.bindPopup('You are here').openPopup(); // Add a popup to the red dot
 }
+function closestRestaurant(lat, lon) {
+  const restaurants = restaurantModule.getRestaurants();
+  let closest = null;
+  let minDistance = Infinity;
+
+  for (const restaurant of restaurants) {
+    const restLat = restaurant.location.coordinates[1];
+    const restLon = restaurant.location.coordinates[0];
+    const distance = Math.sqrt(
+      Math.pow(lat - restLat, 2) + Math.pow(lon - restLon, 2)
+    );
+
+    if (distance < minDistance) {
+      minDistance = distance;
+      closest = restaurant;
+    }
+  }
+
+  return closest;
+}
 export {addMarker, moveToLocation};
