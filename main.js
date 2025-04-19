@@ -1,6 +1,22 @@
 import * as restaurant from './restaurants.js';
 import * as map from './map.js';
+import * as menus from './menuConstruction.js';
+
 const restaurantSelect = document.querySelector('#ravintolat');
+const toggleButton = document.querySelector('#menu-toggle');
+
+let menuToggle = true;
+
+toggleButton.addEventListener('click', () => {
+  menuToggle = !menuToggle; // Toggle the state
+  menus.createMenuTable(menuToggle); // Update the menu table based on the toggle state
+
+  if (menuToggle) {
+    toggleButton.textContent = 'päivän ruokalista';
+  } else {
+    toggleButton.textContent = 'viikon ruokalista';
+  }
+});
 
 const restaurants = await restaurant.getRestaurants();
 
@@ -9,30 +25,22 @@ for (const restaurant of restaurants) {
   option.value = restaurant._id;
   option.textContent = restaurant.name;
   restaurantSelect.appendChild(option);
+  map.addMarker(restaurant._id);
 }
 
-restaurantSelect.addEventListener('change', () => {
-  createMenuTable();
-  map.addMarker(restaurantSelect.value);
-});
+restaurantSelect.addEventListener('change', async () => {
+  menus.createMenuTable(menuToggle); // Update the menu table when the restaurant changes
 
-createMenuTable();
-async function createMenuTable() {
-  const menuTable = document.querySelector('#menu-table');
-  menuTable.innerHTML = '';
-  const dailyMenu = await restaurant.getDailyMenu(restaurantSelect.value, 'fi');
-  const menu = dailyMenu.courses;
-  for (const item of menu) {
-    const tr = document.createElement('tr');
-    const name = document.createElement('td');
-    const price = document.createElement('td');
-    const diets = document.createElement('td');
-    name.textContent = item.name;
-    price.textContent = item.price;
-    diets.textContent = item.diets;
-    tr.appendChild(name);
-    tr.appendChild(diets);
-    tr.appendChild(price);
-    menuTable.appendChild(tr);
+  const selectedRestaurantId = restaurantSelect.value;
+  const selectedRestaurant = await restaurant.getRestaurantById(
+    selectedRestaurantId
+  );
+
+  if (selectedRestaurant && selectedRestaurant.location) {
+    const lat = selectedRestaurant.location.coordinates[1];
+    const lon = selectedRestaurant.location.coordinates[0];
+    map.moveToLocation(lat, lon);
+  } else {
+    console.error('Invalid restaurant data or location.');
   }
-}
+});
