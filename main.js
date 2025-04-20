@@ -31,7 +31,7 @@ for (const restaurant of restaurants) {
   restaurantSelect.appendChild(option);
   map.addMarker(restaurant._id);
 }
-
+menus.createMenuTable(menuToggle);
 restaurantSelect.addEventListener('change', async () => {
   menus.createMenuTable(menuToggle); // Update the menu table when the restaurant changes
 

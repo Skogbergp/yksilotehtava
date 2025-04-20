@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="nav.js" type="module"></script>
+    <script src="customers.js" type="module"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Ravintola</h1>
+      </div>
+      <div class="nav">
+        <a href="index.html">Etusivu</a>
+        <a href="#">Suosikit</a>
+        <a href="registerForm.html">Luo käyttäjä</a>
+        <a href="login.html">Kirjaudu</a>
+        <select name="ravintolat" id="ravintolat"></select>
+        <button id="menu-toggle" value="daily"></button>
+      </div>
+
+      <div class="content">
+        <h2>Kirjaudu</h2>
+        <form id="login-form">
+          <label for="username">Käyttäjänimi:</label>
+          <input type="text" id="username" name="username" required />
+
+          <label for="password">Salasana:</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit" id="login-button">Kirjaudu</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

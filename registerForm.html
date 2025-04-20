@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="nav.js" type="module"></script>
+    <script src="customers.js" type="module"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Ravintola</h1>
+      </div>
+      <div class="nav"></div>
+
+      <div class="content">
+        <h2>Rekisteröidy</h2>
+        <form id="register-form">
+          <label for="username">Käyttäjänimi:</label>
+          <input type="text" id="username" name="username" required />
+
+          <label for="email">Sähköposti:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="password">Salasana:</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit" id="register-button">Rekisteröidy</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
