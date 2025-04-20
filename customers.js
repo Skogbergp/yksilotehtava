@@ -5,12 +5,15 @@ const authUrl = 'https://media2.edu.metropolia.fi/restaurant/api/v1/auth/';
 const registerButton = document.querySelector('#register-button');
 const loginButton = document.querySelector('#login-button');
 const logoutButton = document.querySelector('#logout-button');
-
-loginButton.addEventListener('click', event => loginUser(event));
-logoutButton.addEventListener('click', event => logoutUser(event));
-
-registerButton.addEventListener('click', event => registerUser(event));
-
+if (loginButton) {
+  loginButton.addEventListener('click', event => loginUser(event));
+}
+if (logoutButton) {
+  logoutButton.addEventListener('click', event => logoutUser(event));
+}
+if (registerButton) {
+  registerButton.addEventListener('click', event => registerUser(event));
+}
 function registerUser(event) {
   // Prevent the default form submission behavior
   event.preventDefault();
@@ -54,6 +57,8 @@ async function loginUser(event) {
     console.log('token', token);
     localStorage.setItem('token', token);
     console.log('User logged in successfully');
+    // Redirect to the profile page or any other page
+    window.location.href = 'index.html'; // Change this to the desired page
   } else {
     console.error('Login failed');
   }
@@ -70,14 +75,14 @@ async function getUserInfo() {
     console.error('No token found. User is not logged in.');
     return;
   }
-  const response = await fetchData(url + 'users', {
+  const response = await fetchData(url + 'users/token', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
     },
   });
-  console.log('response', response);
+
   if (response) {
     console.log('User info retrieved successfully');
     return response;

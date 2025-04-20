@@ -1,9 +1,12 @@
-import * as userFetch from 'customers.js';
+import * as customers from './customers.js';
 
 const userName = document.querySelector('#username');
 const userEmail = document.querySelector('#email');
 
-user = await userFetch.getUserData();
+console.log('username', userName);
+console.log('email', userEmail);
+
+const user = await customers.getUserInfo();
 
 if (user) {
   userName.textContent = user.username;

@@ -1,4 +1,4 @@
-// Function to dynamically create and append navigation links
+import {logoutUser} from './customers.js';
 function createNavBar() {
   const nav = document.querySelector('.nav');
 
@@ -17,8 +17,12 @@ function createNavBar() {
   // Create and append "Luo käyttäjä" or "Kirjaudu ulos" links based on login status
   if (localStorage.getItem('token')) {
     const logoutLink = document.createElement('a');
-    logoutLink.href = 'logout.html';
+    logoutLink.href = '';
     logoutLink.textContent = 'Kirjaudu ulos';
+    logoutLink.addEventListener('click', () => {
+      logoutUser();
+      window.location.href = 'index.html'; // Redirect to index.html after logout{
+    });
     nav.appendChild(logoutLink);
   } else {
     const registerLink = document.createElement('a');
