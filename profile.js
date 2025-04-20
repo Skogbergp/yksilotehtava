@@ -14,7 +14,7 @@ deleteButton.addEventListener('click', async event => {
     'Oletko varma, että haluat poistaa käyttäjätilisi?'
   );
   if (confirmation) {
-    await customers.deleteUserAccount();
+    customers.deleteUserAccount();
     alert('Käyttäjätili poistettu onnistuneesti.');
     window.location.href = 'index.html'; // Redirect to index.html after deletion
   } else {
