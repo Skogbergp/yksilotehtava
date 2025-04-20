@@ -91,8 +91,24 @@ async function getUserInfo() {
   }
   return response;
 }
-function updateUserInfo() {
-  //TODO: implement user info update logic
+function updateUserInfo(user) {
+  console.log('user', user);
+
+  const username = user.username;
+  const email = user.email;
+  const password = user.password;
+  fetchData(url + 'users', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+    body: JSON.stringify({
+      username: username,
+      email: email,
+      password: password,
+    }),
+  });
 }
 function deleteUserAccount() {
   //TODO: implement user account deletion logic
@@ -100,7 +116,17 @@ function deleteUserAccount() {
 function getFavoriteRestaurants() {
   //TODO: implement favorite restaurants retrieval logic
 }
-function addFavoriteRestaurant() {
+function addFavoriteRestaurant(id) {
+  fetchData(url + 'users', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    },
+    body: JSON.stringify({
+      favouriteRestaurant: id,
+    }),
+  });
   //TODO: implement add favorite restaurant logic
 }
 

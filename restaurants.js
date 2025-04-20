@@ -1,3 +1,4 @@
+import {addFavoriteRestaurant} from './customers.js';
 import {fetchData} from './fetchData.js';
 
 const url = 'https://media2.edu.metropolia.fi/restaurant/api/v1/';

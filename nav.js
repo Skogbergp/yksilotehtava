@@ -43,6 +43,12 @@ function createNavBar() {
     select.id = 'ravintolat';
     nav.appendChild(select);
 
+    const addFavoriteRestaurant = document.createElement('button');
+    addFavoriteRestaurant.id = 'add-favorite-restaurant';
+    addFavoriteRestaurant.textContent = 'suosikki';
+
+    nav.appendChild(addFavoriteRestaurant);
+
     // Conditionally create and append the button only on index.html
     const button = document.createElement('button');
     button.id = 'menu-toggle';

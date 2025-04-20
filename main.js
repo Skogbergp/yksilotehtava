@@ -1,9 +1,17 @@
 import * as restaurant from './restaurants.js';
 import * as map from './map.js';
 import * as menus from './menuConstruction.js';
+import {addFavoriteRestaurant} from './customers.js';
 
 const restaurantSelect = document.querySelector('#ravintolat');
 const toggleButton = document.querySelector('#menu-toggle');
+const addFavoriteRestaurantButton = document.querySelector(
+  '#add-favorite-restaurant'
+);
+
+addFavoriteRestaurantButton.addEventListener('click', async () => {
+  addFavoriteRestaurant(restaurantSelect.value);
+});
 
 let menuToggle = true; // true for daily menu, false for weekly menu
 
