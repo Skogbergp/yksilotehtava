@@ -6,11 +6,25 @@ const userEmail = document.querySelector('#email');
 const editButton = document.querySelector('#edit-button');
 const profileInfo = document.querySelector('#profile-info');
 const suosikkiRavintola = document.querySelector('#suosikkiRavintola');
+const deleteButton = document.querySelector('#delete-button');
+
+deleteButton.addEventListener('click', async event => {
+  event.preventDefault();
+  const confirmation = confirm(
+    'Oletko varma, että haluat poistaa käyttäjätilisi?'
+  );
+  if (confirmation) {
+    await customers.deleteUserAccount();
+    alert('Käyttäjätili poistettu onnistuneesti.');
+    window.location.href = 'index.html'; // Redirect to index.html after deletion
+  } else {
+    alert('Käyttäjätilin poisto peruutettu.');
+  }
+});
 
 let isEditing = false;
 
 const user = await customers.getUserInfo();
-console.log('user', user);
 
 if (user) {
   userName.textContent = user.username;

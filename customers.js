@@ -111,11 +111,22 @@ function updateUserInfo(user) {
   });
 }
 function deleteUserAccount() {
-  //TODO: implement user account deletion logic
+  try {
+    fetchData(url + 'users', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+
+    localStorage.removeItem('token');
+  } catch (error) {
+    console.error('Error deleting user account:', error);
+  }
+  console.log('User account deleted successfully');
 }
-function getFavoriteRestaurants() {
-  //TODO: implement favorite restaurants retrieval logic
-}
+
 function addFavoriteRestaurant(id) {
   fetchData(url + 'users', {
     method: 'PUT',
@@ -137,6 +148,5 @@ export {
   getUserInfo,
   updateUserInfo,
   deleteUserAccount,
-  getFavoriteRestaurants,
   addFavoriteRestaurant,
 };
